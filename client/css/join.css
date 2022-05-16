@@ -42,7 +42,7 @@ form div:first-child .input_box p {
   margin: 10px 0;
 }
 form div:first-child .input_box::after {
-  content: '@naver.com';
+  content: "@naver.com";
   display: block;
   width: 100px;
   height: 30px;
@@ -59,6 +59,9 @@ form div input {
   padding: 10px;
 }
 form div div input:focus {
+  border: 1px solid #03c75a;
+}
+form div input:focus {
   border: 1px solid #03c75a;
 }
 form div .birthbox {
@@ -83,7 +86,10 @@ form .join {
   background-color: #03c75a;
   color: #fff;
 }
-.errer, .errer_id, .errer_birth, .errer_mail {
+.errer,
+.errer_id,
+.errer_birth,
+.errer_mail {
   display: none;
 }
 .none {
