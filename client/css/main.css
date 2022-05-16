@@ -1,3 +1,7 @@
+.inner {
+  max-width: 1000px;
+  padding: 0 20px;
+}
 .email_form {
   width: 500px;
   margin: 200px auto;
@@ -67,4 +71,29 @@ input::placeholder {
   background-color: rgb(156, 128, 201);
   color: #fff;
   cursor: pointer;
+}
+
+.swal-button {
+  padding: 10px 19px;
+  border-radius: 5px;
+  background-color: #ae72df;
+  font-size: 15px;  
+}
+
+
+@media screen and (max-width: 560px) {
+  .email_form {
+    width: 100%;
+  }
+  .email_form form > div {
+    align-items: flex-start;
+    flex-flow: column wrap;
+    gap: 10px;
+  }
+  .email_form form > div input {
+    width: 100%;
+  }
+  .email_form form > div div {
+    width: 100%;
+  }
 }

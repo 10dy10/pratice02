@@ -7,43 +7,43 @@
   <title>Document</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/main.css">
-  <script src="./main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
 
-  <div class="email_form">
-    <h1>이메일 보내기</h1>
-    <form action="submit">
-      <div>
-        <label for="name">성명</label>
-        <input type="text" name="name" class="name form_input" required>
-      </div>
-      <div>
-        <label for="tel">휴대폰번호</label>
-        <input type="tel" name="tel" class="telnum form_input" placeholder="- 없이 입력해주세요." required>
-      </div>
-      <div>
-        <label for="email">이메일</label>
-        <input type="email" name="email" class="email form_input" required>
-      </div>
-      <div>
-        <label for="title">제목</label>
+  <div class="inner">
+    <div class="email_form">
+      <h1>이메일 보내기</h1>
+      <form action="submit">
         <div>
-          <input type="text" name="title" class="title form_input" maxlength="99" required>
-          <p class="current">0 자 / 0 byte (최대 100자까지 입력가능)</p>
+          <label for="name">성명</label>
+          <input type="text" name="name" class="name form_input" required>
         </div>
-      </div>
-      <div>
-        <label for="contents">내용</label>
-        <textarea name="contents" class="con form_input" cols="30" rows="20" maxlength="999" required></textarea>
-        <p class="current_con">0 자 / 0 byte (최대 1000자까지 입력가능)</p>
-      </div>
-      <button type="submit" class="send">보내기</button>
-  
-    </form>
-    
+        <div>
+          <label for="tel">휴대폰 번호</label>
+          <input type="tel" name="tel" class="telnum form_input" placeholder="- 없이 입력해주세요." maxlength="11" required>
+        </div>
+        <div>
+          <label for="email">이메일</label>
+          <input type="email" name="email" class="email form_input" required>
+        </div>
+        <div>
+          <label for="title">제목</label>
+          <div>
+            <input type="text" name="title" class="title form_input" maxlength="99" required>
+            <p class="current">0 자 / 0 byte (최대 100자까지 입력가능)</p>
+          </div>
+        </div>
+        <div>
+          <label for="contents">내용</label>
+          <textarea name="contents" class="con form_input" cols="30" rows="20" maxlength="999" required></textarea>
+          <p class="current_con">0 자 / 0 byte (최대 1000자까지 입력가능)</p>
+        </div>
+        <button type="submit" class="send">보내기</button>
+      </form>
+    </div>
   </div>
 
   <a href="page/join.html">회원가입</a>
@@ -63,33 +63,52 @@
       event.preventDefault()
 
       if(userName.value == '') {
-        console.log(userName.value);
-        alert('성명을 입력하세요.')
+        swal('성명을 입력해주세요!')
         userName.focus()
         return false
       }
       if(userTel.value == '') {
-        alert('휴대폰번호를 입력하세요.')
+        swal('휴대폰 번호를 입력해주세요.')
         userTel.focus()
         return false
       }
       if(userEmail.value == '') {
-        alert('이메일을 입력하세요.')
+        swal('이메일을 입력해주세요.')
         userEmail.focus()
         return false
       }
       if(emailTit.value == '') {
-        alert('제목을 입력하세요.')
+        swal('제목을 입력해주세요.')
         emailTit.focus()
         return false
       }
       if(emailCon.value == '') {
-        alert('내용을 입력하세요.')
+        swal('내용을 입력하세요.')
         emailCon.focus()
         return false
       }
     })
 
+    // 휴대폰 번호 검사 (휴대전화만)
+    userTel.addEventListener('blur', function(){
+      let tel = userTel.value
+      const regex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+      if (!regex.test(tel)) {
+        swal('올바른 휴대폰 번호를 입력해주세요. Ex)01012345678')
+      }
+    })
+    
+    // 이메일 주소 검사
+    userEmail.addEventListener('blur', function(){
+      let email = userEmail.value
+      const regex = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
+      if (!regex.test(email)) {
+        swal('이메일 형식이 잘못되었습니다.')
+      }
+    })
+
+    // 메일 내용, 제목 글자수 파악
     emailTit.addEventListener('input', function(){
       currentByte.innerHTML = `${emailTit.value.length} 자 / ${byteCounter(emailTit.value,1)} Byte (최대 100자까지 입력가능)`;
     })

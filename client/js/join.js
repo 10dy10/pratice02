@@ -7,7 +7,7 @@ const ERRER_ALERT = 'none'
 
 // input 태그에서 포커스아웃 시 값 없으면 오류메세지 뜨기
 formInput.forEach(function(item){
-  item.addEventListener('blur', function(e){
+  item.addEventListener('blur', function(){
     const erreralert = this.nextElementSibling
     
     if(this.value == '') {
@@ -22,6 +22,7 @@ function addClass (none) {
   none.nextElementSibling.classList.add(ERRER_ALERT)
 }
 
+// 성별 미선택 시 오류메세지 뜨기
 formSel.addEventListener('click', function(){
   if(this.value == '0') {
     addClass(this)
