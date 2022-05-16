@@ -1,0 +1,291 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Poppins:wght@200;400;500;600;700;900&display=swap');
+
+
+* {
+  box-sizing: border-box;
+}
+
+/*━━━━━━━━━━━━━━━━━CSS초기화 (Eric Meyer's css reset)━━━━━━━━━━━━━━━━━━━━━━━*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font-family:  'Poppins', 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* input 기본 스타일 초기화 */
+input {
+  font-family: 'Poppins', 'Noto Sans KR',  sans-serif;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  padding: .5rem;
+  border: none;
+  border-radius: 0;
+  -webkit-border-radius:0;
+  color: var(--text-color);
+  box-sizing: border-box;	
+}
+
+input:focus{
+  outline: none;
+}
+
+/* input type number 에서 화살표 제거 */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+html {
+  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+  font-size: 62.5%;
+  -webkit-text-size-adjust: none;
+  /* text-align: center; */
+  color: var(--text-color);
+}
+
+body {
+  position: relative;
+  font-size: 1.6rem;
+  line-height: 1;
+  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  margin: 0 auto;
+  color: var(--text-color);
+  background: #fff;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ::selection {
+  background: var(--main-color);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: none !important;
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #242322;
+} */
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+select {
+  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  background-image: url("../images/sel_icon2.png");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  cursor: pointer;
+  background-color:#fff;
+  box-sizing: border-box;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+textarea {
+  padding: 1rem;
+  color: var(--text-color);
+  border: none;
+  resize: none;
+  font-family: 'Noto Sans KR';
+  box-sizing: border-box;
+}
+textarea:focus{
+  outline: none;
+}
+input::placeholder,
+textarea::placeholder {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+a:hover,
+a:active,
+a:focus,
+a {
+  text-decoration: none;
+}
+
+.clearfix {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.gray{
+  color: var(--gray);
+}
+
+.main_color{
+  color: var(--text-sub-color);
+}
+
+
+@media screen and (max-width: 786px) {
+  html {
+    /* font-size: 60%; */
+  }
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  html {
+    font-size: 50%;
+  }
+}

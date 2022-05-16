@@ -1,0 +1,94 @@
+body {
+  background-color: #f5f6f7;
+}
+section {
+  width: 100%;
+  margin: 30px auto;
+  padding: 20px;
+}
+form {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+label {
+  cursor: pointer;
+}
+input::placeholder {
+  font-size: 14px;
+  color: #666;
+}
+h1 {
+  width: 165px;
+  height: 32px;
+  margin: 0 auto 50px;
+}
+h1 img {
+  width: 100%;
+}
+form > div {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+form div .input_box {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  position: relative;
+}
+form div:first-child .input_box p {
+  margin: 10px 0;
+}
+form div:first-child .input_box::after {
+  content: '@naver.com';
+  display: block;
+  width: 100px;
+  height: 30px;
+  color: #666;
+  font-weight: 300;
+  position: absolute;
+  right: 10px;
+  top: 32%;
+}
+form div input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #dadada;
+  padding: 10px;
+}
+form div div input:focus {
+  border: 1px solid #03c75a;
+}
+form div .birthbox {
+  display: flex;
+  gap: 10px;
+}
+form select {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  color: #666;
+  border: 1px solid #dadada;
+  outline: none;
+  font-size: 15px;
+}
+form select:focus {
+  border: 1px solid #03c75a;
+}
+form .join {
+  width: 100%;
+  height: 50px;
+  background-color: #03c75a;
+  color: #fff;
+}
+.errer, .errer_id, .errer_birth, .errer_mail {
+  display: none;
+}
+.none {
+  font-weight: 300;
+  font-size: 13px;
+  color: #ff0000;
+  display: block;
+}

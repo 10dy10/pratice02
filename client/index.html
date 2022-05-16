@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="./main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div class="email_form">
+    <h1>이메일 보내기</h1>
+    <form action="submit">
+      <div>
+        <label for="name">성명</label>
+        <input type="text" name="name" class="name form_input" required>
+      </div>
+      <div>
+        <label for="tel">휴대폰번호</label>
+        <input type="tel" name="tel" class="telnum form_input" placeholder="- 없이 입력해주세요." required>
+      </div>
+      <div>
+        <label for="email">이메일</label>
+        <input type="email" name="email" class="email form_input" required>
+      </div>
+      <div>
+        <label for="title">제목</label>
+        <div>
+          <input type="text" name="title" class="title form_input" maxlength="99" required>
+          <p class="current">0 자 / 0 byte (최대 100자까지 입력가능)</p>
+        </div>
+      </div>
+      <div>
+        <label for="contents">내용</label>
+        <textarea name="contents" class="con form_input" cols="30" rows="20" maxlength="999" required></textarea>
+        <p class="current_con">0 자 / 0 byte (최대 1000자까지 입력가능)</p>
+      </div>
+      <button type="submit" class="send">보내기</button>
+  
+    </form>
+    
+  </div>
+
+  <a href="page/join.html">회원가입</a>
+
+  <script>
+    let form = document.querySelector('form')
+    let sendBtn = document.querySelector('.send')
+    let userName = document.querySelector('.name')
+    let userTel = document.querySelector('.telnum')
+    let userEmail = document.querySelector('.email')
+    let emailTit = document.querySelector('.title')
+    let emailCon = document.querySelector('.con')
+    let currentByte = document.querySelector('.current')
+    let cuByte = document.querySelector('.current_con')
+    
+    sendBtn.addEventListener('click', function(){
+      event.preventDefault()
+
+      if(userName.value == '') {
+        console.log(userName.value);
+        alert('성명을 입력하세요.')
+        userName.focus()
+        return false
+      }
+      if(userTel.value == '') {
+        alert('휴대폰번호를 입력하세요.')
+        userTel.focus()
+        return false
+      }
+      if(userEmail.value == '') {
+        alert('이메일을 입력하세요.')
+        userEmail.focus()
+        return false
+      }
+      if(emailTit.value == '') {
+        alert('제목을 입력하세요.')
+        emailTit.focus()
+        return false
+      }
+      if(emailCon.value == '') {
+        alert('내용을 입력하세요.')
+        emailCon.focus()
+        return false
+      }
+    })
+
+    emailTit.addEventListener('input', function(){
+      currentByte.innerHTML = `${emailTit.value.length} 자 / ${byteCounter(emailTit.value,1)} Byte (최대 100자까지 입력가능)`;
+    })
+
+    emailCon.addEventListener('input', function(){
+      cuByte.innerHTML = `${emailCon.value.length} 자 / ${byteCounter(emailCon.value,1)} Byte (최대 1000자까지 입력가능)`
+    })
+
+    function byteCounter(text, blank) {
+      let byte = 0;  
+
+      for(let i=0; i<text.length;i++) {
+        if (/[ㄱ-ㅎㅏ-ㅣ가-힣]/.test(text[i])) {
+          byte += 2
+        } else {
+          byte++
+        }
+      }
+      return byte
+    }
+    
+
+  </script>
+</body>
+</html>
